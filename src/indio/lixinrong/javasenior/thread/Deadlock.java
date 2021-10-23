@@ -3,6 +3,10 @@ package indio.lixinrong.javasenior.thread;
  * 关于死锁的经典面试题
  * 两个线程 分别共享 两个对象  两个线程完成任务需要拿到两把锁（两把锁嵌套）
  * 当两个线程分别拿走一把锁 ，两个线程都完成不了共享对象锁里的任务线程进入死锁；
+ * 线程1 在完成线程时拿走了对象一的锁，再要完成里面嵌套任务是需要对象二的锁 而
+ * 对象二的锁被 线程2拿走而线程而需要完成对象二锁里嵌套的任务时需要对象一的锁；
+ * 线程进入死锁
+ * 死锁  锁的嵌套；
  */
 public class Deadlock implements Runnable  {
     private Object obj;
